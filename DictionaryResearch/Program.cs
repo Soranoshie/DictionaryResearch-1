@@ -14,12 +14,18 @@ internal static class Program
 		{
 			var count = Enumerable.Range(0, DictionaryLength).ToDictionary(i => i, i => "Value").Count;
 		});
+		
+		var hardFilling = new Action(() =>
+		{
+			var count = Enumerable.Range(0, DictionaryLength).ToDictionary(i => 672827 * i, i => "Value").Count;
+		});
 
 		// TODO Сделать Action, меделнно заполняющий Dictionary;
 
 		Console.WriteLine(Helper.MeasureTime(defaultFilling));
+		Console.WriteLine(Helper.MeasureTime(hardFilling));
 
-		// Какое время на вашем ПК для обоих Action
+		// Какое время на вашем ПК для обоих Action : 47 и 2793
 	}
 }
 
